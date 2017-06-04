@@ -1,25 +1,33 @@
-export const reducer = (state, action) => {
+const recipesReducer = (recipes = [], action) => {
   switch (action.type) {
     case 'ADD_RECIPE':
-      return Object.assign(
-        {},
-        state,
-        { recipes: state.recipes.concat({name: action.name})
-        }
-      )
+      return recipes.concat({name: action.name})
+
+    default:
+      return recipes
+  }
+
+  return recipes
+}
+
+const ingredientsReducer = (ingredients = [], action) => {
+  switch (action.type) {
     case 'ADD_INGREDIENT':
       const newIngredient = {
         name: action.name,
         recipe: action.recipe,
         quantity: action.quantity
       }
+      return ingredients.concat(newIngredient)
 
-      return Object.assign(
-        {},
-        state,
-        { ingredients: state.ingredients.concat(newIngredient) }
-      )
+    default:
+      return ingredients
   }
 
-  return state
+  return ingredients
 }
+
+export default combineReducers({
+  recipes: recipesReducer,
+  ingredients: ingredientsReducer
+})
