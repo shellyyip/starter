@@ -1,6 +1,9 @@
+import { combineReducers } from 'redux'
+import { ADD_RECIPE, ADD_INGREDIENT } from 'constants/action-types'
+
 const recipesReducer = (recipes = [], action) => {
   switch (action.type) {
-    case 'ADD_RECIPE':
+    case ADD_RECIPE:
       return recipes.concat({name: action.name})
 
     default:
@@ -12,7 +15,7 @@ const recipesReducer = (recipes = [], action) => {
 
 const ingredientsReducer = (ingredients = [], action) => {
   switch (action.type) {
-    case 'ADD_INGREDIENT':
+    case ADD_INGREDIENT:
       const newIngredient = {
         name: action.name,
         recipe: action.recipe,

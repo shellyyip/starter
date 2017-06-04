@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
-import { reducer } from '../reducers/root'
+import rootReducer from '../reducers/root'
 
 const initialState = {
   recipes: [
@@ -16,4 +16,4 @@ const initialState = {
   ]
 }
 
-export const store = createStore(reducer, initialState)
+export const store = createStore(rootReducer, initialState)
