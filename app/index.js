@@ -15,6 +15,19 @@ const initialState = {
   ]
 }
 
+// Action Creators
+const addRecipe = (name) => ({
+  type: 'ADD_RECIPE',
+  name
+})
+
+const addIngredient = (recipe, name, quantity) => ({
+  type: 'ADD_INGREDIENT',
+  recipe,
+  name,
+  quantity
+})
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_RECIPE':
