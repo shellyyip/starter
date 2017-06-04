@@ -16,7 +16,7 @@ const config = {
   context: appPath,
 
   entry: {
-    app: 'app.js',
+    app: 'index.js',
     vendor: Object.keys(packageConfig.dependencies)
   },
 
